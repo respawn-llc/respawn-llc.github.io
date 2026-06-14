@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page not found — Respawn Open Source</title>
+    <meta name="robots" content="noindex">
+    <!--
+      Migration shim: the Builder docs that used to live at
+      opensource.respawn.pro/builder/* were renamed to Kent and now live at
+      https://kent.sh/* . GitHub Pages serves this 404.html for any unmatched
+      path on this domain, so we redirect ONLY the /builder prefix (path-
+      preserving) and leave every other 404 (FlowMVI, kmmutils, …) untouched.
+    -->
+    <script>
+        (function () {
+            var prefix = "/builder";
+            var path = window.location.pathname;
+            if (path === prefix || path.indexOf(prefix + "/") === 0) {
+                var rest = path.slice(prefix.length); // "" for /builder, "/guide/x" for deep links
+                var target = "https://kent.sh" + rest + window.location.search + window.location.hash;
+                window.location.replace(target);
+            }
+        })();
+    </script>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <canvas id="animated-grid-canvas"></canvas>
+    <main>
+        <section id="hero">
+            <h1><span class="flowmvi-gradient">404</span></h1>
+            <p class="hero-subheadline">This page could not be found.</p>
+            <p>Looking for the <strong>Builder</strong> docs? They were renamed to
+               <strong>Kent</strong> and moved to
+               <a href="https://kent.sh">kent.sh</a>.</p>
+            <a href="https://opensource.respawn.pro/" class="button">Back to Open Source</a>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2026 Respawn LLC. All rights reserved.</p>
+    </footer>
+    <script src="/script.js"></script>
+</body>
+</html>
